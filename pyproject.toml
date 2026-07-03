@@ -1,0 +1,45 @@
+[project]
+name = "isr-lab"
+version = "0.1.0"
+description = "Quantitative horse racing research platform"
+readme = "README.md"
+requires-python = ">=3.12"
+
+authors = [
+    { name = "Ian Springham" }
+]
+
+dependencies = [
+    "duckdb>=1.1",
+    "httpx>=0.28",
+    "polars>=1.30",
+    "pandas>=2.3",
+    "typer>=0.16",
+    "rich>=14.0",
+    "python-dotenv>=1.1",
+    "pydantic>=2.11",
+    "pyyaml>=6.0",
+    "tenacity>=9.1",
+    "matplotlib>=3.10",
+    "scipy>=1.16",
+    "statsmodels>=0.14",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4",
+    "ruff>=0.12",
+]
+
+[project.scripts]
+isr = "isr_lab.cli:app"
+
+[build-system]
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
